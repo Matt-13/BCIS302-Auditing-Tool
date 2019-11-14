@@ -77,3 +77,8 @@ button:hover{
     position: relative;
     margin-top: 150px;
 }
+
+#instructions ul{
+    text-align: left;
+    display: inline-block;
+}

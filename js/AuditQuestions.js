@@ -4,32 +4,32 @@
             {
                 question: "How often are you updating software?",
                 answers: {
-                    a: {questionName: "Less than once per year", value: 0},
-                    b: {questionName: "Once a month", value: 1},
-                    c: {questionName: "Once per fortnight", value: 2},
-                    d: {questionName: "Once per week", value: 3},
-                    e: {questionName: "Once per day", value: 4},
-                    f: {questionName: "As soon as an update is available", value: 5},
-                    g: {questionName: "Unknown (gives a 0 score)", value: 0}
+                    a: {questionName: "Less than once per year", score: 0},
+                    b: {questionName: "Once a month", score: 1},
+                    c: {questionName: "Once per fortnight", score: 2},
+                    d: {questionName: "Once per week", score: 3},
+                    e: {questionName: "Once per day", score: 4},
+                    f: {questionName: "As soon as an update is available", score: 5},
+                    g: {questionName: "Unknown (gives a 0 score)", score: 0}
                 },
                 correctAnswer: "f"
             },
             {
                 question: "What type of threat logging does the company use?",
                 answers: {
-                    a: {questionName:"None", value: 0},
-                    b: {questionName: "SIEM (Splunk/Arcsight/ELSA/etc)", value: 5},
-                    c: {questionName: "OS Event Logging", value: 1}
+                    a: {questionName:"None", score: 0},
+                    b: {questionName: "SIEM (Splunk/Arcsight/ELSA/etc)", score: 5},
+                    c: {questionName: "OS Event Logging", score: 1}
                 },
                 correctAnswer: "b"
             },
             {
                 question: "How are threat logs handled?",
                 answers: {
-                    a: {questionName: "Not handled (gives a 0 score)", value: 0},
-                    b: {questionName: "Handled when there is a threat", value: 2.5},
-                    c: {questionName: "Handled by threat analysts", value: 5},
-                    d: {questionName: "Ignored (gives a -10 score)", value: -10}
+                    a: {questionName: "Not handled (gives a 0 score)", score: 0},
+                    b: {questionName: "Handled when there is a threat", score: 2.5},
+                    c: {questionName: "Handled by threat analysts", score: 5},
+                    d: {questionName: "Ignored (gives a -10 score)", score: -10}
                 },
                 correctAnswer: "c"
             },
@@ -49,7 +49,7 @@
 
                 // and for each available answer...
                 for (let letter in currentQuestion.answers) {
-                    //score += currentQuestion.answers[letter].value;
+                    // noinspection JSUnfilteredForInLoop
                     answers.push(
                         `<label><input type="radio" name="question${questionNumber}" value="${letter}">${letter} : ${currentQuestion.answers[letter].questionName} </label>`);
                 }
@@ -84,7 +84,9 @@
 
                     // color the answers green
                     answerContainers[questionNumber].style.color = "lightgreen";
-                } else {
+                }
+                else {
+                    answerContainer.innerHTML += `<p style="text-align: center">Recommended Approach: ${currentQuestion.correctAnswer}`;
                     // if answer is wrong or blank
                     // color the answers red
                     answerContainers[questionNumber].style.color = "red";
@@ -96,7 +98,7 @@
             <p>You need to improve on:</p>`;
 
             // show number of correct answers out of total
-            resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+            resultsContainer.innerHTML = `${myQuestions.length - numCorrect} out of ${myQuestions.length}`;
         }
 
         function showSlide(n) {
