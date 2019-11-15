@@ -1,40 +1,6 @@
 (
     function() {
-        const myQuestions = [
-            {
-                question: "How often are you updating software?",
-                answers: {
-                    a: {questionName: "Less than once per year", score: 0},
-                    b: {questionName: "Once a month", score: 1},
-                    c: {questionName: "Once per fortnight", score: 2},
-                    d: {questionName: "Once per week", score: 3},
-                    e: {questionName: "Once per day", score: 4},
-                    f: {questionName: "As soon as an update is available", score: 5},
-                    g: {questionName: "Unknown (gives a 0 score)", score: 0}
-                },
-                correctAnswer: "f"
-            },
-            {
-                question: "What type of threat logging does the company use?",
-                answers: {
-                    a: {questionName:"None", score: 0},
-                    b: {questionName: "SIEM (Splunk/Arcsight/ELSA/etc)", score: 5},
-                    c: {questionName: "OS Event Logging", score: 1}
-                },
-                correctAnswer: "b"
-            },
-            {
-                question: "How are threat logs handled?",
-                answers: {
-                    a: {questionName: "Not handled (gives a 0 score)", score: 0},
-                    b: {questionName: "Handled when there is a threat", score: 2.5},
-                    c: {questionName: "Handled by threat analysts", score: 5},
-                    d: {questionName: "Ignored (gives a -10 score)", score: -10}
-                },
-                correctAnswer: "c"
-            },
-        ];
-
+        const myQuestions = new Questions().myQuestions;
         let score = 5;
         let maxScore = 15;
 
