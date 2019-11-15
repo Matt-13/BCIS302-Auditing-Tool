@@ -100,7 +100,7 @@ class Questions {
                     b: {questionName: "No", score: 5},
                     c: {questionName: "Unknown", score: 1}
                 },
-                correctAnswer: "a",
+                correctAnswer: "b",
                 weight: 19
             },
             {

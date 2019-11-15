@@ -4,40 +4,54 @@
     <meta charset="UTF-8">
     <title>BCIS302 Auditing Tool - By Matthew Whitaker</title>
     <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-    <h1>Auditing Tool for Cybersecurity of Organizations - By Matthew Whitaker</h1>
-    <h3>This quiz will take around 10 mins to complete.</h3>
-    <div class="quiz-container">
-        <div id="quiz"></div>
+    <h1>
+        Auditing Tool for Cybersecurity of Organizations
+        <small class="text-muted">By Matthew Whitaker</small>
+    </h1>
+    <div id="body-wrapper">
+        <h3>This quiz will take around 10 mins to complete.</h3>
+        <div class="quiz-container">
+            <div id="quiz"></div>
+        </div>
+        <button type="button" class="button btn-primary btn-lg" id="previous">Previous Question</button>
+        <button type="button" class="button btn-primary btn-lg" id="next">Next Question</button>
+        <button type="button" class="button btn-primary btn-lg" id="submit">Submit Quiz</button>
+        <div id="score"></div>
+        <div id="results"></div>
+        <br>
+        <div id="instructions" class="card bg-light">
+            <div class="card-header">
+                <h3>Notes</h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>
+                        <p>Questions can be left blank - this will decrease your cybersecurity effectiveness.</p>
+                    </li>
+                    <li>
+                        <p>Results are calculated at the end.</p>
+                    </li>
+                    <li>
+                        <p>Each question has a correct answer, and will greatly affect the score at the end.</p>
+                    </li>
+                    <li>
+                        <p>At the end you are welcome to press "Previous Question" and check your answers.</p>
+                    </li>
+                    <li>
+                        <p>At the end, recommendations will be appended above.</p>
+                    </li>
+                    <li>
+                        <p>All recommendations made are based on real life case studies from various cybersecurity breaches from all over the globe.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <button id="previous">Previous Question</button>
-    <button id="next">Next Question</button>
-    <button id="submit">Submit Quiz</button>
-    <div id="score"></div>
-    <div id="results"></div>
     <script src="js/Questions.js"></script>
     <script src="js/AuditCode.js"></script>
-    <br>
-    <div id="instructions">
-        <h3>Notes</h3>
-        <ul>
-            <li>
-                <p>Questions can be left blank - this will decrease your cybersecurity effectiveness.</p>
-            </li>
-            <li>
-                <p>Results are calculated at the end.</p>
-            </li>
-            <li>
-                <p>Each question has a correct answer, and will greatly affect the score at the end.</p>
-            </li>
-            <li>
-                <p>At the end you are welcome to press "Previous Question" and check your answers.</p>
-            </li>
-            <li>
-                <p>At the end, recommendations will be appended above.</p>
-            </li>
-        </ul>
-    </div>
+    <script src="js/bootstrap.js"></script>
 </body>
 </html>

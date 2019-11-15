@@ -1,8 +1,7 @@
 (
     function() {
         const myQuestions = new Questions().myQuestions;
-        let score = 5;
-        let maxScore = 15;
+        let maxScore = 2460;
 
         function buildQuiz() {
             // we'll need a place to store the HTML output
@@ -35,6 +34,7 @@
 
             // keep track of user's answers
             let numCorrect = 0;
+            let score = 0;
 
             // for each question...
             myQuestions.forEach((currentQuestion, questionNumber) => {
@@ -42,6 +42,16 @@
                 const answerContainer = answerContainers[questionNumber];
                 const selector = `input[name=question${questionNumber}]:checked`;
                 const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+                if(userAnswer === undefined) {
+                    score += 0;
+                } else {
+                    for (let item in currentQuestion.answers[userAnswer]) {
+                        score += currentQuestion.weight * currentQuestion.answers[userAnswer].score;
+                        console.log(score)
+                    }
+                }
+
 
                 // if answer is correct
                 if (userAnswer === currentQuestion.correctAnswer) {
@@ -59,12 +69,24 @@
                 }
             });
 
-            scoreContainer.innerHTML = `<p>Your Cyber Security effectiveness: ${score} out of ${maxScore}</p>
-            <p>Your Cyber Security rating is ${((score/maxScore)*100).toPrecision(2)}% out of 100%</p>
-            <p>You need to improve on:</p>`;
+            const percentScore = (score / maxScore * 100).toPrecision(2);
+            scoreContainer.innerHTML = `
+            <br>
+            <div class="alert alert-info">
+                <h3>Cyber Security Effectiveness:</h3>
+                <p>Your Cyber Security rating is ${percentScore}% out of 100%</p>
+            </div>
+            `;
 
             // show number of correct answers out of total
-            resultsContainer.innerHTML = `${myQuestions.length - numCorrect} out of ${myQuestions.length}`;
+            resultsContainer.innerHTML = `
+            <div class="alert alert-danger">
+                <h3>Items to Consider:</h3>
+                <i>${myQuestions.length - numCorrect} out of ${myQuestions.length} items selected, are incorrect cybersecurity practice!</i>
+            </div>`;
+            if (percentScore < 50) {
+                resultsContainer.innerHTML += `<div class="alert alert-danger"><h3 style="color: red;">Your company is at risk of cybersecurity breaches!</h3></div>`
+            }
         }
 
         function showSlide(n) {
