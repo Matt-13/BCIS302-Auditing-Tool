@@ -108,7 +108,7 @@ class Questions {
                 answers: {
                     a: {questionName:"Yes", score: 5},
                     b: {questionName: "No", score: 0},
-                    c: {questionName: "Not Known", score: 1}
+                    c: {questionName: "Not Known", score: 5}
                 },
                 correctAnswer: "a",
                 weight: 19

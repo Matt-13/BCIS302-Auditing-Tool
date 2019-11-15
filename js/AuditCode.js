@@ -89,12 +89,38 @@
             `;
 
             // show number of correct answers out of total
-            resultsContainer.innerHTML = `
-            <div class="alert alert-danger">
-                <h3>Items to Consider:</h3>
-                <i>${myQuestions.length - numCorrect} out of ${myQuestions.length} items selected, are bad cybersecurity practice!</i>
-                <p>Please press "Previous Question" to go back and see what you are missing.</p>
-            </div>`;
+            const numIncorrect = myQuestions.length - numCorrect
+            if (numIncorrect === 0) {
+                resultsContainer.innerHTML = `
+                <div class="alert alert-success">
+                    <h3>Well done!</h3>
+                    <i>No issues found!</i>
+                </div>`;
+            }
+            if (numIncorrect < 10) {
+                resultsContainer.innerHTML = `
+                <div class="alert alert-success">
+                    <h3>Items to Consider:</h3>
+                    <i>${myQuestions.length - numCorrect} out of ${myQuestions.length} items selected, are bad cybersecurity practice!</i>
+                    <p>Please press "Previous Question" to go back and see what you are missing.</p>
+                </div>`;
+            }
+            if (numIncorrect >= 10 && numIncorrect < 20) {
+                resultsContainer.innerHTML = `
+                <div class="alert alert-warning">
+                    <h3>Items to Consider:</h3>
+                    <i>${myQuestions.length - numCorrect} out of ${myQuestions.length} items selected, are bad cybersecurity practice!</i>
+                    <p>Please press "Previous Question" to go back and see what you are missing.</p>
+                </div>`;
+            }
+            if (numIncorrect > 20) {
+                resultsContainer.innerHTML = `
+                <div class="alert alert-danger">
+                    <h3>Items to Consider:</h3>
+                    <i>${myQuestions.length - numCorrect} out of ${myQuestions.length} items selected, are bad cybersecurity practice!</i>
+                    <p>Please press "Previous Question" to go back and see what you are missing.</p>
+                </div>`;
+            }
             if (percentScore < 50) {
                 resultsContainer.innerHTML += `<div class="alert alert-danger"><h3 style="color: red;">Your company is at risk of cybersecurity breaches!</h3></div>`
             }
