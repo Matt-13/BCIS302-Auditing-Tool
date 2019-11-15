@@ -7,18 +7,21 @@
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-    <h1>
+    <h1 class="lead">
         Auditing Tool for Cybersecurity of Organizations
         <small class="text-muted">By Matthew Whitaker</small>
     </h1>
     <div id="body-wrapper">
-        <h3>This quiz will take around 10 mins to complete.</h3>
-        <div class="quiz-container">
+        <h5 class="font-italic lead">This quiz will take around 10 mins to complete.</h5>
+        <div class="quiz-container card bg-light">
             <div id="quiz"></div>
         </div>
-        <button type="button" class="button btn-primary btn-lg" id="previous">Previous Question</button>
-        <button type="button" class="button btn-primary btn-lg" id="next">Next Question</button>
-        <button type="button" class="button btn-primary btn-lg" id="submit">Submit Quiz</button>
+        <div id="buttons">
+            <button type="button" class="button btn-primary btn-lg" id="previous">Previous Question</button>
+            <button type="button" class="button btn-primary btn-lg" id="next">Next Question</button>
+            <button type="button" class="button btn-success btn-lg" id="submit">Submit Quiz</button>
+            <button type="button" class="button btn-danger btn-lg" id="reset" onclick="window.location.reload()">Restart</button>
+        </div>
         <div id="score"></div>
         <div id="results"></div>
         <br>

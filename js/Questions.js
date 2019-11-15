@@ -131,7 +131,7 @@ class Questions {
                     d: {questionName: "Employees educated", score: 5},
                     e: {questionName: "Physical access limited", score: 5},
                     f: {questionName: "Nothing", score: 0},
-                    g: {questionName: "All of the above.", score: 10},
+                    g: {questionName: "All of the above. *(If multiple, select this)", score: 10},
                 },
                 correctAnswer: "g",
                 weight: 19

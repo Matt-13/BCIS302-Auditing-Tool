@@ -16,15 +16,20 @@
                 for (let letter in currentQuestion.answers) {
                     // noinspection JSUnfilteredForInLoop
                     answers.push(
-                        `<label><input type="radio" name="question${questionNumber}" value="${letter}">${letter} : ${currentQuestion.answers[letter].questionName} </label>`);
+                        `
+                        <label>
+                            <input type="radio" name="question${questionNumber}" value="${letter}">${letter} : ${currentQuestion.answers[letter].questionName} 
+                        </label>
+                        `);
                 }
 
                 // add this question and its answers to the output
                 output.push(`
                 <div class="slide">
-                    <div class="question"> ${currentQuestion.question} </div>
-                    <div class="answers"> ${answers.join("")} </div>
-                    <p>Question: ${myQuestions.indexOf(currentQuestion) + 1} of 30</p>
+                    <div class="question card-header"><h3>${currentQuestion.question}</h3></div>
+                    <div class="answers card-body"> ${answers.join("")}
+                    <b><p style="margin-top: 1em">Question: ${myQuestions.indexOf(currentQuestion) + 1} of 30</p></b>
+                    </div>
                 </div>`
                 );
             });
@@ -74,7 +79,7 @@
                 }
             });
 
-            const percentScore = (score / maxScore * 100).toPrecision(2);
+            const percentScore = (score / maxScore * 100).toFixed(2);
             scoreContainer.innerHTML = `
             <br>
             <div class="alert alert-info">
@@ -87,10 +92,14 @@
             resultsContainer.innerHTML = `
             <div class="alert alert-danger">
                 <h3>Items to Consider:</h3>
-                <i>${myQuestions.length - numCorrect} out of ${myQuestions.length} items selected, are incorrect cybersecurity practice!</i>
+                <i>${myQuestions.length - numCorrect} out of ${myQuestions.length} items selected, are bad cybersecurity practice!</i>
+                <p>Please press "Previous Question" to go back and see what you are missing.</p>
             </div>`;
             if (percentScore < 50) {
                 resultsContainer.innerHTML += `<div class="alert alert-danger"><h3 style="color: red;">Your company is at risk of cybersecurity breaches!</h3></div>`
+            }
+            if (percentScore > 80) {
+                resultsContainer.innerHTML += `<div class="alert alert-success"><h3 style="color: green;">Your company is taking cybersecurity seriously, well done!</h3></div>`
             }
         }
 
