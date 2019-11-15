@@ -86,7 +86,7 @@
                     answerContainers[questionNumber].style.color = "lightgreen";
                 }
                 else {
-                    answerContainer.innerHTML += `<p style="text-align: center">Recommended Approach: ${currentQuestion.correctAnswer}`;
+                    answerContainer.innerHTML += `<b><p style="text-align: center">Recommended Approach: ${currentQuestion.correctAnswer}</p></b>`;
                     // if answer is wrong or blank
                     // color the answers red
                     answerContainers[questionNumber].style.color = "red";
