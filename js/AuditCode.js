@@ -20,7 +20,12 @@
                 }
 
                 // add this question and its answers to the output
-                output.push(`<div class="slide"><div class="question"> ${currentQuestion.question} </div><div class="answers"> ${answers.join("")} </div></div>`
+                output.push(`
+                <div class="slide">
+                    <div class="question"> ${currentQuestion.question} </div>
+                    <div class="answers"> ${answers.join("")} </div>
+                    <p>Question: ${myQuestions.indexOf(currentQuestion) + 1} of 30</p>
+                </div>`
                 );
             });
 
