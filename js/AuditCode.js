@@ -89,7 +89,7 @@
             `;
 
             // show number of correct answers out of total
-            const numIncorrect = myQuestions.length - numCorrect
+            const numIncorrect = myQuestions.length - numCorrect;
             if (numIncorrect === 0) {
                 resultsContainer.innerHTML = `
                 <div class="alert alert-success">
